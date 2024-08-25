@@ -2,7 +2,7 @@
   // ns-params:@params
   var enable_exif = false;
   var reverse = true;
-  var shuffle = true;
+  var shuffle = false;
 
   // ns-hugo:/home/esotericwarfare/.cache/hugo_cache/modules/filecache/modules/pkg/mod/github.com/bep/gallerydeluxe@v0.10.0/assets/js/gallerydeluxe/src/pig.js
   var optimizedResize = /* @__PURE__ */ function() {
