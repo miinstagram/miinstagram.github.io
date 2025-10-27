@@ -1,4 +1,5 @@
 #! /bin/sh
+rm -rf thumb-*
 echo "<!DOCTYPE html>" > index.html
 echo "<html>" >> index.html
 echo "<head>" >> index.html
