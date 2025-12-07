@@ -22,7 +22,7 @@ for img in *.jpg *.JPG *.png *.PNG *.bmp *.BMP *.jpeg *.JPEG *.gif *.GIF; do
     if [ ! -f "${img}" ]; then
         continue
     fi
-    convert -auto-orient -scale 100 $img thumb-$img
+    convert -auto-orient -scale 300 $img thumb-$img
      echo "<div style=\"width: 33vw; height: 33vh; \">" >> index.html
          echo "<div style=\"width: 100%; height: 90%;\">" >> index.html
             echo "<img style=\"height: 100%;\" src=\"thumb-$img\"></a>" >> index.html
