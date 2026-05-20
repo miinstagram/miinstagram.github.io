@@ -1,286 +1,340 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<title>My file gallery</title>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My file gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #111;
+    color: #e8e8e8;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #666;
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #222;
+  }
+
+  h1:first-of-type { margin-top: 0; }
+
+  /* Subdirs */
+  .subdirs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .subdirs a {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    background: #1e1e1e;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+
+  .subdirs a:hover {
+    background: #2a2a2a;
+    border-color: #444;
+    color: #fff;
+  }
+
+  /* Grid for images and videos */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .card {
+    background: #1a1a1a;
+    border: 1px solid #232323;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s;
+    cursor: pointer;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+    border-color: #3a3a3a;
+  }
+
+  .card-media {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: #0d0d0d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.2s;
+  }
+
+  .card-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-label {
+    padding: 0.55rem 0.7rem;
+    border-top: 1px solid #222;
+  }
+
+  .card-label a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.78rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    transition: color 0.15s;
+  }
+
+  .card-label a:hover { color: #fff; }
+</style>
 </head>
 <body>
-<h1>Subdirs</h1>
-<h1>Images</h1>
-<div style="width: 100vw; display: flex; flex-direction: row;  flex-wrap: wrap; ">
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251120_162408484.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251120_162408484.jpg">IMG_20251120_162408484.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251120_162408484_rotate.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251120_162408484_rotate.jpg">IMG_20251120_162408484_rotate.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251120_162413232.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251120_162413232.jpg">IMG_20251120_162413232.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251120_162413232_rotate.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251120_162413232_rotate.jpg">IMG_20251120_162413232_rotate.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251120_162418041.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251120_162418041.jpg">IMG_20251120_162418041.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251120_162418041_rotate.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251120_162418041_rotate.jpg">IMG_20251120_162418041_rotate.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251121_235518840.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251121_235518840.jpg">IMG_20251121_235518840.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251121_235523655.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251121_235523655.jpg">IMG_20251121_235523655.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251121_235552789_BURST001.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251121_235552789_BURST001.jpg">IMG_20251121_235552789_BURST001.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251129_115007195.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251129_115007195.jpg">IMG_20251129_115007195.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251202_101759555.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251202_101759555.jpg">IMG_20251202_101759555.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251202_101805290.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251202_101805290.jpg">IMG_20251202_101805290.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251202_101809356.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251202_101809356.jpg">IMG_20251202_101809356.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251202_101816528.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251202_101816528.jpg">IMG_20251202_101816528.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251207_145456749_BURST000_COVER_TOP.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251207_145456749_BURST000_COVER_TOP.jpg">IMG_20251207_145456749_BURST000_COVER_TOP.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251207_145456749_BURST001.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251207_145456749_BURST001.jpg">IMG_20251207_145456749_BURST001.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251207_145500167.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251207_145500167.jpg">IMG_20251207_145500167.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251208_103955300.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251208_103955300.jpg">IMG_20251208_103955300.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251208_103957633.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251208_103957633.jpg">IMG_20251208_103957633.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251211_170516463.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251211_170516463.jpg">IMG_20251211_170516463.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251211_170520018.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251211_170520018.jpg">IMG_20251211_170520018.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20251211_170523672.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20251211_170523672.jpg">IMG_20251211_170523672.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20260507_105739185.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20260507_105739185.jpg">IMG_20260507_105739185.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20260512_070212776.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20260512_070212776.jpg">IMG_20260512_070212776.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20260512_070217423.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20260512_070217423.jpg">IMG_20260512_070217423.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20260512_070254249.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20260512_070254249.jpg">IMG_20260512_070254249.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20260512_070304121.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20260512_070304121.jpg">IMG_20260512_070304121.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20260512_070354622.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20260512_070354622.jpg">IMG_20260512_070354622.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20260512_070426393.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20260512_070426393.jpg">IMG_20260512_070426393.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20260512_070454716.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20260512_070454716.jpg">IMG_20260512_070454716.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20260512_070544575.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20260512_070544575.jpg">IMG_20260512_070544575.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20260512_070616656.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20260512_070616656.jpg">IMG_20260512_070616656.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20260512_070645432.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20260512_070645432.jpg">IMG_20260512_070645432.jpg</a>
-</div>
-</div>
-<div style="width: 33vw; height: 33vh; ">
-<div style="width: 100%; height: 90%;">
-<img style="height: 100%;" src="thumb-IMG_20260512_070729384.jpg"></a>
-</div>
-<div style="width: 100%; height: 10%;">
-<a href="IMG_20260512_070729384.jpg">IMG_20260512_070729384.jpg</a>
-</div>
+<h1>Directorios</h1>
+<div class="subdirs">
+<span style="color:#444;font-size:0.85rem;">Sin subdirectorios</span>
+</div>
+<h1>Imágenes</h1>
+<div class="grid">
+<div class="card">
+  <a href="IMG_20251120_162408484.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251120_162408484.jpg" alt="IMG_20251120_162408484.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251120_162408484.jpg" target="_blank" rel="noopener">IMG_20251120_162408484.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251120_162408484_rotate.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251120_162408484_rotate.jpg" alt="IMG_20251120_162408484_rotate.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251120_162408484_rotate.jpg" target="_blank" rel="noopener">IMG_20251120_162408484_rotate.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251120_162413232.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251120_162413232.jpg" alt="IMG_20251120_162413232.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251120_162413232.jpg" target="_blank" rel="noopener">IMG_20251120_162413232.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251120_162413232_rotate.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251120_162413232_rotate.jpg" alt="IMG_20251120_162413232_rotate.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251120_162413232_rotate.jpg" target="_blank" rel="noopener">IMG_20251120_162413232_rotate.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251120_162418041.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251120_162418041.jpg" alt="IMG_20251120_162418041.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251120_162418041.jpg" target="_blank" rel="noopener">IMG_20251120_162418041.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251120_162418041_rotate.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251120_162418041_rotate.jpg" alt="IMG_20251120_162418041_rotate.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251120_162418041_rotate.jpg" target="_blank" rel="noopener">IMG_20251120_162418041_rotate.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251121_235518840.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251121_235518840.jpg" alt="IMG_20251121_235518840.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251121_235518840.jpg" target="_blank" rel="noopener">IMG_20251121_235518840.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251121_235523655.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251121_235523655.jpg" alt="IMG_20251121_235523655.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251121_235523655.jpg" target="_blank" rel="noopener">IMG_20251121_235523655.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251121_235552789_BURST001.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251121_235552789_BURST001.jpg" alt="IMG_20251121_235552789_BURST001.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251121_235552789_BURST001.jpg" target="_blank" rel="noopener">IMG_20251121_235552789_BURST001.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251129_115007195.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251129_115007195.jpg" alt="IMG_20251129_115007195.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251129_115007195.jpg" target="_blank" rel="noopener">IMG_20251129_115007195.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251202_101759555.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251202_101759555.jpg" alt="IMG_20251202_101759555.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251202_101759555.jpg" target="_blank" rel="noopener">IMG_20251202_101759555.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251202_101805290.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251202_101805290.jpg" alt="IMG_20251202_101805290.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251202_101805290.jpg" target="_blank" rel="noopener">IMG_20251202_101805290.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251202_101809356.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251202_101809356.jpg" alt="IMG_20251202_101809356.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251202_101809356.jpg" target="_blank" rel="noopener">IMG_20251202_101809356.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251202_101816528.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251202_101816528.jpg" alt="IMG_20251202_101816528.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251202_101816528.jpg" target="_blank" rel="noopener">IMG_20251202_101816528.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251207_145456749_BURST000_COVER_TOP.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251207_145456749_BURST000_COVER_TOP.jpg" alt="IMG_20251207_145456749_BURST000_COVER_TOP.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251207_145456749_BURST000_COVER_TOP.jpg" target="_blank" rel="noopener">IMG_20251207_145456749_BURST000_COVER_TOP.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251207_145456749_BURST001.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251207_145456749_BURST001.jpg" alt="IMG_20251207_145456749_BURST001.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251207_145456749_BURST001.jpg" target="_blank" rel="noopener">IMG_20251207_145456749_BURST001.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251207_145500167.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251207_145500167.jpg" alt="IMG_20251207_145500167.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251207_145500167.jpg" target="_blank" rel="noopener">IMG_20251207_145500167.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251208_103955300.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251208_103955300.jpg" alt="IMG_20251208_103955300.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251208_103955300.jpg" target="_blank" rel="noopener">IMG_20251208_103955300.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251208_103957633.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251208_103957633.jpg" alt="IMG_20251208_103957633.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251208_103957633.jpg" target="_blank" rel="noopener">IMG_20251208_103957633.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251211_170516463.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251211_170516463.jpg" alt="IMG_20251211_170516463.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251211_170516463.jpg" target="_blank" rel="noopener">IMG_20251211_170516463.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251211_170520018.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251211_170520018.jpg" alt="IMG_20251211_170520018.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251211_170520018.jpg" target="_blank" rel="noopener">IMG_20251211_170520018.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20251211_170523672.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20251211_170523672.jpg" alt="IMG_20251211_170523672.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20251211_170523672.jpg" target="_blank" rel="noopener">IMG_20251211_170523672.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20260507_105739185.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20260507_105739185.jpg" alt="IMG_20260507_105739185.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20260507_105739185.jpg" target="_blank" rel="noopener">IMG_20260507_105739185.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20260512_070212776.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20260512_070212776.jpg" alt="IMG_20260512_070212776.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20260512_070212776.jpg" target="_blank" rel="noopener">IMG_20260512_070212776.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20260512_070217423.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20260512_070217423.jpg" alt="IMG_20260512_070217423.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20260512_070217423.jpg" target="_blank" rel="noopener">IMG_20260512_070217423.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20260512_070254249.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20260512_070254249.jpg" alt="IMG_20260512_070254249.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20260512_070254249.jpg" target="_blank" rel="noopener">IMG_20260512_070254249.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20260512_070304121.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20260512_070304121.jpg" alt="IMG_20260512_070304121.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20260512_070304121.jpg" target="_blank" rel="noopener">IMG_20260512_070304121.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20260512_070354622.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20260512_070354622.jpg" alt="IMG_20260512_070354622.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20260512_070354622.jpg" target="_blank" rel="noopener">IMG_20260512_070354622.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20260512_070426393.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20260512_070426393.jpg" alt="IMG_20260512_070426393.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20260512_070426393.jpg" target="_blank" rel="noopener">IMG_20260512_070426393.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20260512_070454716.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20260512_070454716.jpg" alt="IMG_20260512_070454716.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20260512_070454716.jpg" target="_blank" rel="noopener">IMG_20260512_070454716.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20260512_070544575.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20260512_070544575.jpg" alt="IMG_20260512_070544575.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20260512_070544575.jpg" target="_blank" rel="noopener">IMG_20260512_070544575.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20260512_070616656.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20260512_070616656.jpg" alt="IMG_20260512_070616656.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20260512_070616656.jpg" target="_blank" rel="noopener">IMG_20260512_070616656.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20260512_070645432.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20260512_070645432.jpg" alt="IMG_20260512_070645432.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20260512_070645432.jpg" target="_blank" rel="noopener">IMG_20260512_070645432.jpg</a></div>
+</div>
+<div class="card">
+  <a href="IMG_20260512_070729384.jpg" target="_blank" rel="noopener">
+    <div class="card-media"><img src="thumb-IMG_20260512_070729384.jpg" alt="IMG_20260512_070729384.jpg" loading="lazy"></div>
+  </a>
+  <div class="card-label"><a href="IMG_20260512_070729384.jpg" target="_blank" rel="noopener">IMG_20260512_070729384.jpg</a></div>
 </div>
 </div>
 <h1>Videos</h1>
-<div style="width: 100vw; display: flex; flex-direction: row;  flex-wrap: wrap; ">
+<div class="grid">
+<p style="color:#444;font-size:0.85rem;">Sin videos</p>
 </div>
+</body></html>
